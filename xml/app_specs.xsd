@@ -1,0 +1,143 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="application">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="title"/>
+        <xs:element type="xs:string" name="program"/>
+        <xs:element type="xs:string" name="template"/>
+        <xs:element type="xs:string" name="jointype"/>
+        <xs:element name="fields">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="field" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="seq"/>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:string" name="type"/>
+                    <xs:element type="xs:byte" name="length"/>
+                    <xs:element type="xs:string" name="decimal"/>
+                    <xs:element type="xs:string" name="relation"/>
+                    <xs:element type="xs:string" name="description"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="keys">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="key" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="seq"/>
+                    <xs:element type="xs:string" name="field"/>
+                    <xs:element type="xs:string" name="type"/>
+                    <xs:element type="xs:string" name="subtotal"/>
+                    <xs:element type="xs:string" name="pagebreak"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="selections">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="selection" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="seq"/>
+                    <xs:element type="xs:string" name="field"/>
+                    <xs:element type="xs:string" name="relationship"/>
+                    <xs:element type="xs:string" name="type"/>
+                    <xs:element type="xs:string" name="value"/>
+                    <xs:element type="xs:string" name="andor"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="calculations">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="calculation" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="seq"/>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:string" name="type"/>
+                    <xs:element type="xs:byte" name="length"/>
+                    <xs:element type="xs:byte" name="decimal"/>
+                    <xs:element type="xs:string" name="description"/>
+                    <xs:element type="xs:string" name="expression"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="extobjects">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="extobject" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="seq"/>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:string" name="location"/>
+                    <xs:element type="xs:string" name="description"/>
+                    <xs:element name="parameters">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="parameter" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:byte" name="seq"/>
+                                <xs:element type="xs:string" name="field"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="links">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="link" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:byte" name="seq"/>
+                    <xs:element type="xs:string" name="linkto"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="properties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="name"/>
+                    <xs:element type="xs:string" name="value"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

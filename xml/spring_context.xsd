@@ -1,0 +1,44 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="beans">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="bean" maxOccurs="unbounded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation><![CDATA[0. AS400 DB2 local  1. AS400 DB2 remote  1. AS400 DB2 remote  1. AS400 DB2 remote CUSTOMERS 1b. AS400 DB2 remote as400_remote3 (IDB)  1c. AS400 DB2 remote as400_remote5 (Joslin)  1. AS400 DB2 remote as400_remote_BRUCELIB  1. AS400 DB2 remote as400_remote_MRCJAVALIB  1. AS400 DB2 remote for wyffels  3. MS SQL Server  3. MS SQL Server  2008  3. MS SQL Server UK bok 4. Oracle  5. DB2 for Windows  7. MySQL  7. MySQL  7. MySQL mysql3 (new coud linux) 8. PostgreSQL   8. PostgreSQL on DEV  9. Progress OpenEdge (BJ PC)   9. Progress OpenEdge MF 
+ <bean abstract="false" autowire="default" class="org.apache.commons.dbcp.BasicDataSource" dependency-check="default" id="progress1" lazy-init="true" singleton="true">
+  <property name="driverClassName">
+<value>com.ddtek.jdbc.openedge.OpenEdgeDriver</value> </property>
+  <property name="url">	<value>jdbc:datadirect:openedge://66.253.32.227:2500;databaseName=mf</value> </property>
+  <property name="username"> <value>mrc</value> </property>
+  <property name="password"> <value>mpower</value> </property>
+</bean>
+
+  Progress HSQLDB (BJ PC)]]></xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="value"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="abstract" use="optional"/>
+            <xs:attribute type="xs:string" name="autowire" use="optional"/>
+            <xs:attribute type="xs:string" name="class" use="optional"/>
+            <xs:attribute type="xs:string" name="dependency-check" use="optional"/>
+            <xs:attribute type="xs:string" name="id" use="optional"/>
+            <xs:attribute type="xs:string" name="lazy-init" use="optional"/>
+            <xs:attribute type="xs:string" name="singleton" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="default-autowire"/>
+      <xs:attribute type="xs:string" name="default-dependency-check"/>
+      <xs:attribute type="xs:string" name="default-lazy-init"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

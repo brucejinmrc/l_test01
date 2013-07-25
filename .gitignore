@@ -1,0 +1,8 @@
+/.classpath
+/.project
+/.settings
+/bin
+*.class
+/build.xml
+/log4j.properties
+/db2

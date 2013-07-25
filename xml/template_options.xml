@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<templates>
+    <template>
+        	<name>INQHTM-MUL</name>
+        	<properties>
+	        	<property>
+	        	    <name>adv_search</name>
+	        	    <description>Advanced Search</description>
+	        	    <options>
+	        	        <option value="0">Advanced Search Row</option>
+	        	        <option value="1">Advanced Search Dialog</option>
+	        	    </options>
+	        	</property>
+	        	<property>
+	        	    <name>reorder_columns</name>
+	        	    <description>Reorder Columns</description>
+	        	    <options>
+	        	        <option value="0">Do Not Allow Column Reorder</option>
+	        	        <option value="1">Allow Column Reorder</option>
+	        	    </options>
+	        	</property>
+        	</properties>
+        	<fields>
+        	    <field>
+        	        <name>field_option</name>
+        	        <optional>no</optional>
+        	        <description>Field Option 1</description>
+        	    </field>
+        	</fields>
+    </template>
+     <template>
+        	<name>INQHTM-CLD</name>
+        	<properties>
+	        	<property>
+	        	    <name>adv_search</name>
+	        	    <description>Advanced Search</description>
+	        	    <options>
+	        	        <option value="0">Advanced Search Row</option>
+	        	        <option value="1">Advanced Search Dialog</option>
+	        	    </options>
+	        	</property>
+        	</properties>
+        	<fields>
+        	    <field>
+        	        <name>start_date</name>
+        	          <optional>no</optional>
+        	        <description>Start Date</description>
+        	    </field>
+        	    <field>
+        	        <name>end_date</name>
+        	          <optional>no</optional>
+        	         <description>End Date</description>
+        	    </field>
+        	    <field>
+        	        <name>start_time</name>
+        	          <optional>no</optional>
+        	        <description>Start Time</description>
+        	    </field>
+        	    <field>
+        	        <name>end_time</name>
+        	          <optional>no</optional>
+        	         <description>End Time</description>
+        	    </field>
+        	</fields>
+    </template>
+</templates>

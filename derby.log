@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Thu Mar 21 14:58:13 CDT 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013d-8e87-bc80-000002e76020 
+on database directory C:\m-power_distribution\m-power\derby\bin\mrcdb_mysql3  with class loader sun.misc.Launcher$AppClassLoader@21e8614a 
+Loaded from file:/C:/temp/derby/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_11-b21
+user.dir=C:\mrccode_workspace\l_test01
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

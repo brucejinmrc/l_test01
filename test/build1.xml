@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+ 
+<project name="test" default="compile" >
+
+  <property name="srcdir"  value="c:/mrcjava/WEB-INF/classes" />
+  <property name="destdir" value="c:/mrcjava/WEB-INF/classes" />
+  <property name="mrcdct"  value="MRCJAVALIB" />
+  <property name="pgmnam"  value="I00003" />
+  
+  <path id="path.gen">
+    <pathelement location="c:/jin_mrcmigrate/bin"/>
+    <fileset dir="c:/jinjava/jar2">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  
+  <path id="path.compile">
+    <pathelement location="."/>
+    <fileset dir="c:/jinjava/jar1">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  
+  
+  <target name="cleanup" >
+    <echo> Deleting "${mrcdct}/${pgmnam}*.class" </echo>
+    <delete file="${destdir}">
+        <fileset dir="${destdir}" includes="${mrcdct}/${pgmnam}*.class"/>
+    </delete>
+  </target>
+  
+  
+   <target name="parsetpl" depends="cleanup" >
+     <java classname="com.mrc.generator.CompileApp">
+         <arg value="-h"/> 
+         <classpath refid="path.gen" />
+     </java>
+     <property name="parseok" value="true" />
+  </target>
+  
+  
+  <target name="compile" depends="parsetpl" if="parseok">
+    <echo> Compile "${mrcdct}/${pgmnam}s.java" ... </echo>
+    <javac srcdir="${srcdir}" destdir="${destdir}"  	
+    	 includes="${mrcdct}/${pgmnam}s.java">
+      <classpath refid="path.compile" />
+    </javac>  
+  </target>
+  
+   <target name="t2" >
+    <echo> T2 is run! </echo>
+  </target>
+  
+</project>

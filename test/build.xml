@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+ 
+<project name="test" default="" >
+
+ <javadoc
+           destdir="c:/temp/mrcapps-api"
+           extdirs="c:/m-power_distribution/m-power/tomcat/lib;c:/m-power_distribution/m-power/proddata/lib;c:/m-power_distribution/m-power/mrcjava/WEB-INF/lib" 
+           
+            author="false"
+           version="true"
+           use="true"
+           windowtitle="Test API">
+
+    <packageset dir="C:\\mrccode_workspace\\mrcapps2" defaultexcludes="yes">
+      
+      <exclude name="com/mrc/copydata/**"/>
+      <exclude name="com/mrc/micro2/**"/>
+      <exclude name="com/mrc/obj/**"/>
+      <exclude name="com/mrc1/conf/**"/>
+      <exclude name="com/mrc1/macro/**"/>
+      <exclude name="com/mrc1/servlet/page/**"/>
+      <exclude name="com/mrc1/sql/**"/>
+      <exclude name="com/mrc1/util/**"/>
+      
+      <exclude name="com/mrc2/conf/**"/>
+      <exclude name="com/mrc2/common/**"/>
+      <exclude name="com/mrc2/extobjs/**"/>
+      <exclude name="com/mrc2/freemarker/**"/>
+       <exclude name="com/mrc2/macro/**"/>
+      <exclude name="com/mrc2/servlet/**"/>
+      <exclude name="com/mrc2/sql/**"/>
+      <exclude name="com/mrc2/util/**"/>
+      <exclude name="mrc/**"/>
+      <exclude name="mrc/common/**"/>
+      
+    </packageset>
+
+    <doctitle><![CDATA[<h4>m-Power Application API</h4>]]></doctitle>
+    <bottom><![CDATA[<i>Copyright &#169; 1980 - 2013 mrc Ltd. All Rights Reserved.</i>]]></bottom>
+    <tag name="todo" scope="all" description="To do:"/>
+    
+    <link offline="true" href="http://docs.oracle.com/javase/6/docs/api/" packagelistLoc="C:\tmp"/>
+    <link href="http://docs.oracle.com/javase/6/docs/api/"/>
+    <link href="http://static.springsource.org/spring/docs/2.5.x/api/"/>
+    <link href="http://freemarker.sourceforge.net/docs/api/"/>
+    <link href="http://docs.oracle.com/javaee/6/api/"/>
+  </javadoc>
+  
+</project>
