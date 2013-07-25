@@ -17,12 +17,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class POITest {
 
+	private List<List<Cell>> sheetData;
 	public static void main(String[] args) throws Exception {
 
 		String fileName = "c:/temp/test.xlsx";
 
 		List<List<Cell>> sheetData = sheetData(fileName, 0);
 		showExelData(sheetData);
+		List<String> header = header(sheetData.get(0));
+		for (String ss : header) {
+			System.out.println(ss);
+		}
 	}
 
 	/**********************************************************
@@ -84,5 +89,39 @@ public class POITest {
 			 
 			System.out.println("");
 		}
+	}
+	
+
+	private static List<Integer> columnType(List<Cell> cells) {
+		List<Integer> types = new ArrayList<Integer>();
+
+		for (Cell cell : cells) {
+			int type = cell.getCellType();
+			types.add(type); //1-string, 0-double
+		}
+
+		System.out.println("");
+		return types;
+
+	}
+	
+	/** header row */
+	private static List<String> header(List<Cell> cells) {
+		List<String> strs = new ArrayList<String>();
+
+		int col = 0;
+		for (Cell cell : cells) {
+			col++;
+			int type = cell.getCellType();
+			String name = "COL" + col;
+			 if (type == Cell.CELL_TYPE_STRING) {
+				 name = cell.getStringCellValue();
+			 }  
+			 strs.add( name ); 
+		}
+
+		System.out.println("");
+		return strs;
+
 	}
 }
