@@ -27,7 +27,7 @@ public class as400update {
 			Class.forName(driver);
 			System.out.println("Driver " + driver + " loaded.");
 				
-			conn = DriverManager.getConnection(url, "jintest", "mrcuser001");
+			conn = DriverManager.getConnection(url, "", "");
 			System.out.println("Connecting to: " + url);
 			
 			Statement stmt = conn.createStatement();

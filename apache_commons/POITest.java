@@ -18,19 +18,24 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class POITest {
 
 	public static void main(String[] args) throws Exception {
-		//
-		// An excel file name. You can create a file name with a full
-		// path information.
-		//
+
 		String fileName = "c:/temp/test.xlsx";
 
+		List<List<Cell>> sheetData = sheetData(fileName, 0);
+		showExelData(sheetData);
+	}
+
+	/**********************************************************
+	 * New Spreadsheet upload screen
+	 *********************************************************/
+	static List<List<Cell>> sheetData(String fil, int num) {
 		List<List<Cell>> sheetData = new ArrayList<List<Cell>>();
 		InputStream is = null;
 		
 		try {
-			is =  new FileInputStream(fileName); 
+			is =  new FileInputStream(fil); 
 			XSSFWorkbook workBook = new XSSFWorkbook(is); 
-			XSSFSheet sheetx = workBook.getSheetAt(0); 
+			XSSFSheet sheetx = workBook.getSheetAt(num); 
 			Iterator<Row> rows = sheetx.rowIterator();
 
 			while (rows.hasNext()) {
@@ -45,17 +50,22 @@ public class POITest {
 
 				sheetData.add(data);
 			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			if (is != null) {
-				is.close();
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 
-		showExelData(sheetData);
+		return sheetData;
 	}
-
+	
 	private static void showExelData(List<List<Cell>> rows) {
 
 		for (int i = 0; i < rows.size(); i++) {

@@ -41,7 +41,7 @@ public class ConnectionAS400 {
 			Class.forName(driver);
 			System.out.println("Driver " + driver + " loaded.");
 				
-			conn = DriverManager.getConnection(url, "jintest", "mrcuser001");
+			conn = DriverManager.getConnection(url, "", "");
 			System.out.println("Connecting to: " + url);
 		 
 		} catch (ClassNotFoundException exc) {
