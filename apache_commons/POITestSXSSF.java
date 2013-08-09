@@ -14,15 +14,17 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
-public class POITest {
+public class POITestSXSSF {
 
 	private List<List<Cell>> sheetData;
 	public static void main(String[] args) throws Exception {
 
-		String fileName = "c:/temp/excel-files/test_date.xlsx";
+		String fileName = "c:/temp/excel-files/main.xlsx";
 
 		List<List<Cell>> sheetData = sheetData(fileName, 0);
 		showExelData(sheetData);
@@ -41,27 +43,12 @@ public class POITest {
 		
 		try {
 			is =  new FileInputStream(fil); 
-			XSSFWorkbook workBook = new XSSFWorkbook(is); 
-			XSSFSheet sheetx = workBook.getSheetAt(num); 
-			Iterator<Row> rows = sheetx.rowIterator();
+			XSSFWorkbook workBook0 = new XSSFWorkbook(is); 
+			SXSSFWorkbook  workBook = new SXSSFWorkbook(100); 
+			//XSSFSheet sheetx = workBook.getSheetAt(num); 
+			//Iterator<Row> rows = sheetx.rowIterator();
 			int oo = 0;
-			out:
-			while (rows.hasNext()) {
-				Row row =   rows.next();
-				Iterator<Cell> cells = row.cellIterator();
-
-				List<Cell> data = new ArrayList<Cell>();
-				while (cells.hasNext()) {
-					Cell cell =  cells.next();
-					data.add(cell);
-				}
-
-				sheetData.add(data);
-				if (oo++ > 0) {
-					break out;
-				}
-			}
-			
+			 
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -81,7 +68,7 @@ public class POITest {
 
 		DataFormatter fmt = new DataFormatter();
 		for (int i = 0; i < rows.size(); i++) {
-			List<Cell> cells = (List<Cell>)rows.get(i);
+			List<Cell> cells = rows.get(i);
 			 for (int j = 0; j < cells.size(); j++) {	
 				 String val = "";
 				 Cell cell = cells.get(j);
