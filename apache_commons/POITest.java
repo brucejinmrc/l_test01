@@ -30,6 +30,10 @@ public class POITest {
 		for (String ss : header) {
 			System.out.println(ss);
 		}
+		List<Integer> types = columnType(sheetData.get(1));
+		for (int ss : types) {
+			System.out.println(ss);
+		}
 	}
 
 	/**********************************************************
@@ -104,11 +108,18 @@ public class POITest {
 	
 
 	private static List<Integer> columnType(List<Cell> cells) {
-		List<Integer> types = new ArrayList<Integer>();
+		List<Integer> types= new ArrayList<Integer>();
 
 		for (Cell cell : cells) {
+
 			int type = cell.getCellType();
-			types.add(type); //1-string, 0-double
+			if (type == Cell.CELL_TYPE_NUMERIC) {
+				if (DateUtil.isCellDateFormatted(cell)) {
+					type = Cell.CELL_TYPE_FORMULA; // 2 date
+				}
+			}
+			types.add(type); // 1-string, 0-double
+
 		}
 
 		System.out.println("");
